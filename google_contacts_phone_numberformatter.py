@@ -1,7 +1,7 @@
 import csv
 
-csv_file_path = 'comptech.csv'
-new_csv_file_path = 'comptech_new_format.csv'
+csv_file_path = 'comptech_no_duplicates.csv'
+new_csv_file_path = 'comptech_phone.csv'
 
 # Function to format phone numbers
 def format_phone_number(phone):
@@ -25,39 +25,13 @@ with open(csv_file_path, 'r', encoding='utf-8') as file:
     next(csv_reader)
 
     for veri_parcalari in csv_reader:
-        ad_soyad = veri_parcalari[0]
+        ad_soyad = "Comptech " + veri_parcalari[0]# Format the name
         telefon = format_phone_number(veri_parcalari[3])  # Format the phone number
 
         # Create a new record in the desired format
         new_record = [
-            ad_soyad,  # Given Name
-            '',  # Additional Name
-            '',  # Family Name
-            '',  # Yomi Name
-            '',  # Given Name Yomi
-            '',  # Additional Name Yomi
-            '',  # Family Name Yomi
-            '',  # Name Prefix
-            '',  # Name Suffix
-            '',  # Initials
-            '',  # Nickname
-            '',  # Short Name
-            '',  # Maiden Name
-            '',  # Birthday
-            '',  # Gender
-            '',  # Location
-            '',  # Billing Information
-            '',  # Directory Server
-            '',  # Mileage
-            '',  # Occupation
-            '',  # Hobby
-            '',  # Sensitivity
-            '',  # Priority
-            '',  # Subject
-            '',  # Notes
-            '',  # Language
-            '',  # Photo
-            '* myContacts',  # Group Membership
+            ad_soyad,  # Name
+            'Comptech',  # Group Membership
             'Mobile',  # Phone 1 - Type
             telefon  # Phone 1 - Value
         ]
@@ -68,37 +42,9 @@ with open(csv_file_path, 'r', encoding='utf-8') as file:
 # Write the reformatted data to a new CSV file
 with open(new_csv_file_path, 'w', newline='', encoding='utf-8') as new_csv_file:
     csv_writer = csv.writer(new_csv_file, delimiter=',')
-
     # Write the header row
     csv_writer.writerow([
         'Name',
-        'Given Name',
-        'Additional Name',
-        'Family Name',
-        'Yomi Name',
-        'Given Name Yomi',
-        'Additional Name Yomi',
-        'Family Name Yomi',
-        'Name Prefix',
-        'Name Suffix',
-        'Initials',
-        'Nickname',
-        'Short Name',
-        'Maiden Name',
-        'Birthday',
-        'Gender',
-        'Location',
-        'Billing Information',
-        'Directory Server',
-        'Mileage',
-        'Occupation',
-        'Hobby',
-        'Sensitivity',
-        'Priority',
-        'Subject',
-        'Notes',
-        'Language',
-        'Photo',
         'Group Membership',
         'Phone 1 - Type',
         'Phone 1 - Value'
