@@ -2,7 +2,7 @@ import csv
 import matplotlib.pyplot as plt
 
 csv_file_path = 'comptech.csv'
-new_csv_file_path = 'comptech_new.csv'
+new_csv_file_path = 'comptech_no_duplicates.csv'
 duplicate_found = False
 
 # List to store all existing records
